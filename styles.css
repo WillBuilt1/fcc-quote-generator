@@ -17,15 +17,7 @@ body {
     align-items: center;
 }
 
-.quotebox {
-    /*
-    position: absolute;
-    width: 50%;
-    height: 40%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-40%, -50%);
-    */
+#quote-box {
     flex: 0 1 50%;
     height: 50%;
     background-color: rgb(243, 229, 189);
@@ -39,16 +31,10 @@ body {
     position: relative;
 }
 
-/*@media (max-width: 960px) {
-    .quotebox {
-    font-size: 1.5rem;
-    padding: 4rem;
-    }        
-} */
 
 @media (max-width: 600px) {
-    .quotebox {
-        flex: 0 1 75%;
+    #quote-box {
+        flex: 0 1 65%;
         height: 75%;
         font-size: 1.5rem;
         padding: 2rem;
@@ -56,7 +42,7 @@ body {
 }
 
 @media (max-height: 600px) {
-    .quotebox {
+    #quote-box {
         flex: 0 1 75%;
         height: 75%;
         font-size: 1.5rem;
@@ -64,12 +50,13 @@ body {
     }
 }
 
-.quote {
+#text {
     text-align: center;
     text-transform: capitalize;
+    margin-top: 4rem;
 }
 
-.author {
+#author {
     text-align: right;
 }
 
@@ -78,18 +65,30 @@ body {
     font-size: 20px;
 }
 
-.tweetbox {
-    /*display: inline-block;
-    text-align: right;
-    width: 100%;*/
+#new-quote{
+    position: absolute;
+    top: 1.7rem;
+    left: 2rem;
+    font-size: inherit;
+    background: none;
+    font-family: inherit;
+    border: none;
 }
 
-.tweet {
-    height: 2.5rem;
+#tweet-quote{
     position: absolute;
-    top: 1rem;
-    right: 1rem;
-    margin-bottom: 1rem;
+    top:0rem;
+    right: 2rem;
+    font-size: 3rem;
+    color: black;
+}
+
+#new-quote:hover {
+    color: rgb(109, 107, 107);
+}
+
+#tweet-quote:hover{
+    color: rgb(109, 107, 107);
 }
 
 @media (min-width:960px) {

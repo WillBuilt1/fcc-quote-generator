@@ -6,20 +6,26 @@
     <title>Random quotes</title>
     <link rel="stylesheet" href="styles.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
     <div class="container">
-        <div class="quotebox">
-            <div class="tweetbox">
-                <a>
-                    <img src="/twitter-logo.png" alt="Tweet" class="tweet">
+       
+        <div id="quote-box">
+
+                <button id="new-quote">New Quote</button>
+                
+                <a id="tweet-quote" href="twitter.com/intent/tweet" title="tweet-quote">
+                    <i class="fab fa-twitter"></i>
                 </a>
-            </div>
-            <p class="quote"></p>
-            <p class="author"></p>
-            <!--<p class="newQuote">&rarr;</p>-->
+                
+
+                <p id="text"></p>
+
+                <p id="author"></p>
         </div>
 
     </div>
@@ -38,12 +44,12 @@
                         val.quoteAuthor = "Anon";
                     }
                     currentA = val.quoteAuthor;
-                    $('.quote').html(JSON.stringify(val.quoteText));
-                    $('.author').html(JSON.stringify(val.quoteAuthor));
+                    $('#text').html(JSON.stringify(val.quoteText));
+                    $('#author').html(JSON.stringify(val.quoteAuthor));
                 });
         }
 
-        $(".quotebox").on("click", function () {
+        $("#quote-box").on("click", function () {
             newQuote();
         });
 
@@ -51,7 +57,7 @@
             newQuote();
         });
 
-        $(".tweet").on("click", function () {
+        $("#tweet-quote").on("click", function () {
             window.open("https://twitter.com/intent/tweet?text= %22" + currentQ + "%22 %20%20-" + currentA);
         });
 
