@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Random quotes</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="quotebox">
+            <div class="tweetbox">
+                <a>
+                    <img src="/twitter-logo.png" alt="Tweet" class="tweet">
+                </a>
+            </div>
+            <p class="quote"></p>
+            <p class="author"></p>
+            <!--<p class="newQuote">&rarr;</p>-->
+        </div>
+
+    </div>
+
+
+
+    <script>
+        var currentQ = "";
+        var currentA = "";
+
+        function newQuote() {
+            $.getJSON("http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?",
+                function (val) {
+                    currentQ = val.quoteText;
+                    if (val.quoteAuthor == "") {
+                        val.quoteAuthor = "Anon";
+                    }
+                    currentA = val.quoteAuthor;
+                    $('.quote').html(JSON.stringify(val.quoteText));
+                    $('.author').html(JSON.stringify(val.quoteAuthor));
+                });
+        }
+
+        $(".quotebox").on("click", function () {
+            newQuote();
+        });
+
+        $(document).ready(function () {
+            newQuote();
+        });
+
+        $(".tweet").on("click", function () {
+            window.open("https://twitter.com/intent/tweet?text= %22" + currentQ + "%22 %20%20-" + currentA);
+        });
+
+    </script>
+</body>
+
+</html>
