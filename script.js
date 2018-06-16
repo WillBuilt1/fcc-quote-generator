@@ -2,7 +2,7 @@ var currentQ = "";
 var currentA = "";
 
 function newQuote() {
-    $.getJSON("http://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?",
+    $.getJSON("https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?",
         function (val) {
             currentQ = val.quoteText;
             if (val.quoteAuthor == "") {
